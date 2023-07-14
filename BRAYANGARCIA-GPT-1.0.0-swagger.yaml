@@ -1,0 +1,35 @@
+openapi: "3.0.0"
+info:
+  version: "1.0.0"
+  title: "Adobe Marketo API"
+  description: "API for Adobe Marketo"
+servers:
+  - url: "https://adobeioruntime.net/apis/359241-656greengopher/marketo-test"
+paths:
+  /index:
+    post:
+      summary: "Retrieve user details"
+      description: "This endpoint retrieves user details and returns them in the response"
+      responses:
+        '200':
+          description: "User details response"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserResponse"
+components:
+  schemas:
+    User:
+      type: "object"
+      properties:
+        age:
+          type: "integer"
+        name:
+          type: "string"
+        occupation:
+          type: "string"
+    UserResponse:
+      type: "object"
+      properties:
+        payload:
+          $ref: "#/components/schemas/User"
